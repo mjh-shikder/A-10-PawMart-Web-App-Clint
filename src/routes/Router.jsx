@@ -5,6 +5,7 @@ import HomePage from "../home/HomePage";
 import Loading from "../pages/Loading";
 import LoginPage from "../pages/LoginPage";
 import Register from "../pages/Register";
+import PetsSupplies from "../components/PetsSupplies";
 
 const router = createBrowserRouter([
   {
@@ -26,7 +27,12 @@ const router = createBrowserRouter([
             path: '/register',
             element: <Register></Register>,
             hydrateFallbackElement: <Loading></Loading>,
-        }
+        },
+        {
+            path: '/pets-supplies',
+            element: <PetsSupplies></PetsSupplies>,
+            hydrateFallbackElement: <Loading></Loading>,
+        },
     ],
     },
     

@@ -1,5 +1,6 @@
 import React from 'react';
 import useAuth from '../hook/useAuth';
+import Slider from '../components/Slider';
 
 const HomePage = () => {
 
@@ -10,7 +11,7 @@ const HomePage = () => {
 
     return (
         <div>
-            Home page 
+            <Slider></Slider>
         </div>
     );
 };
