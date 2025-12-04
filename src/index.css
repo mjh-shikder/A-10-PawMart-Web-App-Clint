@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap");
 
 @import "tailwindcss";
 
-@plugin "daisyui"{
-   themes: light --default;
+@plugin "daisyui" {
+  themes: light --default;
 }
 
 @plugin "daisyui/theme" {
@@ -14,22 +14,19 @@
   --color-secondary: #81b29a;
   --color-secondary-dark: #6b9c85;
   --color-accent: #f4a261;
-  --color-background: #fff8f0;
-  --color-card: #ffffff;
-  --color-heading: #3d3d3d;
-  --color-body: #4a4a4a;
-}
-
-*{
-   
-   font-family: "Sour Gummy", sans-serif;
+  --color-base-100: #ffffff;
+  --color-base-200: #FFF8F0;
   
 }
 
-.heading{
+* {
+  font-family: "Sour Gummy", sans-serif;
+}
+
+.heading {
   color: #3d3d3d;
 }
 
-.des{
+.des {
   color: #4a4a4a;
 }
