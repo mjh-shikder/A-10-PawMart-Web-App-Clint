@@ -8,12 +8,15 @@ const [user, setUser]= useState('helo')
 
 
 
-
+    const logout = () => {
+    
+}
 
 
     const authInfo = {
         user, 
         setUser,
+        logout,
 }
 
     return <AuthContext value={authInfo}>{children}</AuthContext>
