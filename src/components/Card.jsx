@@ -19,14 +19,14 @@ const Card = ({ data }) => {
           </h2>
         </div>
         <div className="flex items-center justify-between">
-          <div className="text-primary bg-white py-0.5 border border-gray-100 rounded-md px-1.5">
+          <div className="text-sec border border-accent rounded-md px-1.5">
             <h3>{category}</h3>
           </div>
           <div className="flex items-center bg-white py-0.5 border border-gray-100 rounded-md px-1.5">
             <IoLocationSharp size={17}></IoLocationSharp> {location}
           </div>
         </div>
-        <p className="cardDes">{``}</p>
+
         <div className="flex  justify-between items-center">
           {Price == 0 ? (
             <h3 className=" text-secondary bg-white py-0.5 border border-gray-100 rounded-md px-1.5 items-center">
@@ -36,8 +36,7 @@ const Card = ({ data }) => {
             <h3 className="text-secondary text-lg  bg-white py-0.5 border border-gray-100 rounded-md px-1.5 items-center">
               ৳ {Price}
             </h3>
-                  )}
-                 
+          )}
         </div>
         <Link
           to={`/card-details/${_id}`}
