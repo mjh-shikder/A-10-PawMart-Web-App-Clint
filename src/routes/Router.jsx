@@ -43,6 +43,11 @@ const router = createBrowserRouter([
           return data.find((item) => item._id === params._id);
         },
         hydrateFallbackElement: <Loading></Loading>,
+        },
+        {
+            path: '/login',
+            element: <LoginPage></LoginPage>,
+            hydrateFallbackElement: <Loading></Loading>,
       },
     ],
   },

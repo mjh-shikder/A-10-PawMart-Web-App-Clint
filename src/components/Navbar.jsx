@@ -45,7 +45,7 @@ const Navbar = () => {
         <ul className=" space-x-5 px-1 flex items-center">{links}</ul>
       </div>
       <div className="navbar-end">
-        <Link className="btn btn-primary rounded-xl text-white ">Login</Link>
+        <Link to={'/login'} className="btn btn-primary rounded-xl text-white ">Login</Link>
       </div>
     </div>
     );
