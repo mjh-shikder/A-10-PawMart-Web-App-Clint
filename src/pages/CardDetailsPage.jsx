@@ -1,3 +1,4 @@
+import axios from "axios";
 import React from "react";
 import { FaStar } from "react-icons/fa";
 import { IoLocationSharp } from "react-icons/io5";
@@ -46,7 +47,15 @@ const CardDetailsPage = () => {
       notes,
     };
 
-    console.log(formData);
+      console.log(formData);
+
+      axios.post('http://localhost:3000/orders', formData)
+          .then(res => {
+          console.log(res);
+          
+      })
+
+
   };
 
   return (
