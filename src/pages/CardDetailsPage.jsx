@@ -18,6 +18,37 @@ const CardDetailsPage = () => {
     _id,
   } = data;
 
+  const handleForm = (e) => {
+    e.preventDefault();
+
+    const form = e.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const listingId = form.listingID.value;
+    const listingName = form.listingName.value;
+    const quantity = form.quantity.value;
+    const price = form.price.value;
+    const address = form.address.value;
+    const date = form.date.value;
+    const phone = form.phone.value;
+    const notes = form.notes.value;
+
+    const formData = {
+      name,
+      email,
+      listingId,
+      listingName,
+      quantity,
+      price,
+      address,
+      date,
+      phone,
+      notes,
+    };
+
+    console.log(formData);
+  };
+
   return (
     <div className="bg-base-200">
       <title>{name}</title>
@@ -69,13 +100,13 @@ const CardDetailsPage = () => {
               className="modal modal-bottom sm:modal-middle"
             >
               <div className="modal-box">
-                {/*  */}
+                {/* ============================================================ */}
                 <div className="max-w-xl mx-auto p-6 bg-white shadow-lg rounded-xl ">
                   <h2 className="text-2xl font-bold mb-4 text-center">
                     Order Form
                   </h2>
 
-                  <form className="space-y-4">
+                  <form onSubmit={handleForm} className="space-y-4">
                     {/* Buyer Name */}
                     <div>
                       <label className="block mb-1 font-semibold">
@@ -83,6 +114,7 @@ const CardDetailsPage = () => {
                       </label>
                       <input
                         type="text"
+                        name="name"
                         placeholder="Enter buyer name"
                         className="w-full border px-3 py-2 rounded-lg "
                       />
@@ -93,7 +125,9 @@ const CardDetailsPage = () => {
                       <label className="block mb-1 font-semibold">Email</label>
                       <input
                         type="email"
+                        name="email"
                         placeholder="Enter email"
+                        // readOnly
                         className="w-full border px-3 py-2 rounded-lg"
                       />
                     </div>
@@ -105,7 +139,10 @@ const CardDetailsPage = () => {
                       </label>
                       <input
                         type="text"
+                        name="listingID"
                         placeholder="Enter product ID"
+                        readOnly
+                        value={_id}
                         className="w-full border px-3 py-2 rounded-lg"
                       />
                     </div>
@@ -117,7 +154,10 @@ const CardDetailsPage = () => {
                       </label>
                       <input
                         type="text"
+                        name="listingName"
                         placeholder="Enter product name"
+                        value={name}
+                        readOnly
                         className="w-full border px-3 py-2 rounded-lg"
                       />
                     </div>
@@ -130,6 +170,7 @@ const CardDetailsPage = () => {
                       <input
                         type="number"
                         min="1"
+                        name="quantity"
                         placeholder="Enter quantity"
                         className="w-full border px-3 py-2 rounded-lg"
                       />
@@ -141,7 +182,9 @@ const CardDetailsPage = () => {
                       <input
                         type="text"
                         readOnly
+                        name="price"
                         placeholder="Auto price"
+                        value={Price}
                         className="w-full border px-3 py-2 rounded-lg bg-gray-100 cursor-not-allowed"
                       />
                     </div>
@@ -153,6 +196,7 @@ const CardDetailsPage = () => {
                       </label>
                       <textarea
                         placeholder="Enter full address"
+                        name="address"
                         className="w-full border px-3 py-2 rounded-lg"
                         rows="3"
                       ></textarea>
@@ -165,6 +209,7 @@ const CardDetailsPage = () => {
                       </label>
                       <input
                         type="date"
+                        name="date"
                         className="w-full border px-3 py-2 rounded-lg"
                       />
                     </div>
@@ -174,6 +219,7 @@ const CardDetailsPage = () => {
                       <label className="block mb-1 font-semibold">Phone</label>
                       <input
                         type="text"
+                        name="phone"
                         placeholder="Enter phone number"
                         className="w-full border px-3 py-2 rounded-lg"
                       />
@@ -186,16 +232,14 @@ const CardDetailsPage = () => {
                       </label>
                       <textarea
                         placeholder="Add any notes"
+                        name="notes"
                         className="w-full border px-3 py-2 rounded-lg"
                         rows="3"
                       ></textarea>
                     </div>
 
                     {/* Submit Button */}
-                    <button
-                      type="button"
-                      className="w-full bg-accent text-white py-2 rounded-lg font-semibold hover:bg-primary"
-                    >
+                    <button className="w-full bg-accent text-white py-2 rounded-lg font-semibold hover:bg-primary">
                       Place Order
                     </button>
                   </form>
