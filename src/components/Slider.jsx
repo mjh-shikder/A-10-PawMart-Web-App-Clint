@@ -85,7 +85,7 @@ export default function Slider() {
             <div className="relative z-10 flex h-full items-end pb-12 md:items-center md:justify-start md:pb-0">
               <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
                 <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white drop-shadow-lg ">
-                  Adopt, Don’t Shop Give a Pet a Home.
+                  Adopt, Don't Shop Give a Pet a Home.
                 </h2>
                 <p className="mt-4 text-lg md:text-2xl text-white/90 drop-shadow-md">
                   Simple Acts of Kindness That Change a Pet's Entire World.

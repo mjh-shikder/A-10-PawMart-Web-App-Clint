@@ -1,6 +1,7 @@
 import React from 'react';
 import useAuth from '../hook/useAuth';
 import Slider from '../components/Slider';
+import Category from '../components/Category';
 
 const HomePage = () => {
 
@@ -12,6 +13,7 @@ const HomePage = () => {
     return (
         <div>
             <Slider></Slider>
+            <Category></Category>
         </div>
     );
 };
