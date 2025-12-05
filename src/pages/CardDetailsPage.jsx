@@ -30,9 +30,12 @@ const CardDetailsPage = () => {
         <div className="col-span-5 md:px-7 text-accent">
           <h1 className="text-4xl font-semibold  ">{name}</h1>
           <p className="mt-3 text-lg text-gray-600 ">{description}</p>
-          <p className="mt-4 text-lg text-secondary border border-secondary inline-block px-1.5 rounded-md ">{category}</p>
+          <p className="mt-4 text-lg text-secondary border border-secondary inline-block px-1.5 rounded-md ">
+            {category}
+          </p>
           <p className="mt-3 text-lg flex items-center gap-1.5 text-primary  ">
-            <IoLocationSharp size={15}></IoLocationSharp>{location}
+            <IoLocationSharp size={15}></IoLocationSharp>
+            {location}
           </p>
           <div className="border-b border-gray-100 my-5"></div>
           <div>
@@ -45,10 +48,169 @@ const CardDetailsPage = () => {
                 ৳ {Price}
               </h3>
             )}
-           
           </div>
           <div className="border-b border-gray-100 my-5"></div> {/* Border */}
-          
+          <div className="border rounded-lg p-3 border-gray-100 text-gray-600 ">
+            {" "}
+            {/* Border */}
+            <h3 className=" text-xl ">Contact</h3>
+            <h3>Email : {email}</h3>
+          </div>
+          <div className="mt-5 flex gap-5 md:space-x-10 ">
+            {/* Open the modal using document.getElementById('ID').showModal() method */}
+            <button
+              className="btn btn-primary px-10 "
+              onClick={() => document.getElementById("my_modal_5").showModal()}
+            >
+              Adopt/Order Now
+            </button>
+            <dialog
+              id="my_modal_5"
+              className="modal modal-bottom sm:modal-middle"
+            >
+              <div className="modal-box">
+                {/*  */}
+                <div className="max-w-xl mx-auto p-6 bg-white shadow-lg rounded-xl ">
+                  <h2 className="text-2xl font-bold mb-4 text-center">
+                    Order Form
+                  </h2>
+
+                  <form className="space-y-4">
+                    {/* Buyer Name */}
+                    <div>
+                      <label className="block mb-1 font-semibold">
+                        Buyer Name
+                      </label>
+                      <input
+                        type="text"
+                        placeholder="Enter buyer name"
+                        className="w-full border px-3 py-2 rounded-lg "
+                      />
+                    </div>
+
+                    {/* Email */}
+                    <div>
+                      <label className="block mb-1 font-semibold">Email</label>
+                      <input
+                        type="email"
+                        placeholder="Enter email"
+                        className="w-full border px-3 py-2 rounded-lg"
+                      />
+                    </div>
+
+                    {/* Product/Listing ID */}
+                    <div>
+                      <label className="block mb-1 font-semibold">
+                        Product/Listing ID
+                      </label>
+                      <input
+                        type="text"
+                        placeholder="Enter product ID"
+                        className="w-full border px-3 py-2 rounded-lg"
+                      />
+                    </div>
+
+                    {/* Product/Listing Name */}
+                    <div>
+                      <label className="block mb-1 font-semibold">
+                        Product/Listing Name
+                      </label>
+                      <input
+                        type="text"
+                        placeholder="Enter product name"
+                        className="w-full border px-3 py-2 rounded-lg"
+                      />
+                    </div>
+
+                    {/* Quantity */}
+                    <div>
+                      <label className="block mb-1 font-semibold">
+                        Quantity
+                      </label>
+                      <input
+                        type="number"
+                        min="1"
+                        placeholder="Enter quantity"
+                        className="w-full border px-3 py-2 rounded-lg"
+                      />
+                    </div>
+
+                    {/* Price (Read Only) */}
+                    <div>
+                      <label className="block mb-1 font-semibold">Price</label>
+                      <input
+                        type="text"
+                        readOnly
+                        placeholder="Auto price"
+                        className="w-full border px-3 py-2 rounded-lg bg-gray-100 cursor-not-allowed"
+                      />
+                    </div>
+
+                    {/* Address */}
+                    <div>
+                      <label className="block mb-1 font-semibold">
+                        Address
+                      </label>
+                      <textarea
+                        placeholder="Enter full address"
+                        className="w-full border px-3 py-2 rounded-lg"
+                        rows="3"
+                      ></textarea>
+                    </div>
+
+                    {/* Date */}
+                    <div>
+                      <label className="block mb-1 font-semibold">
+                        Date (Pick Up)
+                      </label>
+                      <input
+                        type="date"
+                        className="w-full border px-3 py-2 rounded-lg"
+                      />
+                    </div>
+
+                    {/* Phone */}
+                    <div>
+                      <label className="block mb-1 font-semibold">Phone</label>
+                      <input
+                        type="text"
+                        placeholder="Enter phone number"
+                        className="w-full border px-3 py-2 rounded-lg"
+                      />
+                    </div>
+
+                    {/* Additional Notes */}
+                    <div>
+                      <label className="block mb-1 font-semibold">
+                        Additional Notes
+                      </label>
+                      <textarea
+                        placeholder="Add any notes"
+                        className="w-full border px-3 py-2 rounded-lg"
+                        rows="3"
+                      ></textarea>
+                    </div>
+
+                    {/* Submit Button */}
+                    <button
+                      type="button"
+                      className="w-full bg-accent text-white py-2 rounded-lg font-semibold hover:bg-primary"
+                    >
+                      Place Order
+                    </button>
+                  </form>
+                </div>
+                {/*  */}
+                <div className="modal-action">
+                  <form method="dialog">
+                    {/* if there is a button in form, it will close the modal */}
+                    <button className="btn">Close</button>
+                  </form>
+                </div>
+              </div>
+            </dialog>
+          </div>
+          <div className="border-b border-gray-100 my-5"></div> {/* Border */}
         </div>
       </div>
     </div>
