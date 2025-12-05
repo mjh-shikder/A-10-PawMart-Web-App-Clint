@@ -6,6 +6,8 @@ import Loading from "../pages/Loading";
 import LoginPage from "../pages/LoginPage";
 import Register from "../pages/Register";
 import PetsSupplies from "../components/PetsSupplies";
+import CardDetailsPage from "../pages/CardDetailsPage";
+import axios from "axios";
 
 const router = createBrowserRouter([
   {
@@ -17,25 +19,33 @@ const router = createBrowserRouter([
         index: true,
         element: <HomePage></HomePage>,
         hydrateFallbackElement: <Loading></Loading>,
+      },
+      {
+        path: "/login",
+        element: <LoginPage></LoginPage>,
+        hydrateFallbackElement: <Loading></Loading>,
+      },
+      {
+        path: "/register",
+        element: <Register></Register>,
+        hydrateFallbackElement: <Loading></Loading>,
+      },
+      {
+        path: "/pets-supplies",
+        element: <PetsSupplies></PetsSupplies>,
+        hydrateFallbackElement: <Loading></Loading>,
+      },
+      {
+        path: "/card-details/:_id",
+        element: <CardDetailsPage></CardDetailsPage>,
+        loader: async ({ params }) => {
+          const { data } = await axios.get("http://localhost:3000/listing");
+          return data.find((item) => item._id === params._id);
         },
-        {
-            path: '/login',
-            element: <LoginPage></LoginPage>,
-            hydrateFallbackElement: <Loading></Loading>,
-        },
-        {
-            path: '/register',
-            element: <Register></Register>,
-            hydrateFallbackElement: <Loading></Loading>,
-        },
-        {
-            path: '/pets-supplies',
-            element: <PetsSupplies></PetsSupplies>,
-            hydrateFallbackElement: <Loading></Loading>,
-        },
+        hydrateFallbackElement: <Loading></Loading>,
+      },
     ],
-    },
-    
+  },
 ]);
 
 export default router;
