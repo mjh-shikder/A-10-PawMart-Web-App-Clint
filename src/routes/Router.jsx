@@ -48,7 +48,12 @@ const router = createBrowserRouter([
             path: '/login',
             element: <LoginPage></LoginPage>,
             hydrateFallbackElement: <Loading></Loading>,
-      },
+        },
+        {
+            path: '/register',
+            element: <Register></Register>,
+            hydrateFallbackElement: <Loading></Loading>,
+        },
     ],
   },
 ]);
