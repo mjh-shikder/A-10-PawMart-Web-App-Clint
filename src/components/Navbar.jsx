@@ -1,8 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router';
 import Logo  from "../assets/Logo.png";
+import useAuth from '../hook/useAuth';
+import { toast } from 'react-toastify';
 
 const Navbar = () => {
+
+  const { user, logout } = useAuth();
+
+  const [showTooltip, setShowTooltip] = useState(false);
+
+  const handleLogout = () => {
+    logout()
+      .then(() => {
+        toast("Logout Successful");
+      })
+      .catch((error) => {
+        toast(error);
+      });
+  };
+
+
      const links = <>
     <li> <NavLink to={'/'} className={({ isActive }) => isActive ? "bg-primary text-white px-2.5 py-0.5 rounded-lg font-semibold  " : "text-secondary font-semibold"}>Home</NavLink> </li>
     <li> <NavLink to={'/pets-supplies'} className={({ isActive }) => isActive ? "bg-primary text-white px-2.5 py-0.5 rounded-lg font-semibold  " : "text-secondary font-semibold"}>Pets & Supplies</NavLink> </li>
@@ -44,8 +62,44 @@ const Navbar = () => {
       <div className="navbar-center hidden lg:flex  ">
         <ul className=" space-x-5 px-1 flex items-center">{links}</ul>
       </div>
-      <div className="navbar-end">
-        <Link to={'/login'} className="btn btn-primary rounded-xl text-white ">Login</Link>
+        <div className="navbar-end">
+          
+        {user ? (
+          <div>
+            <Link>
+            <div
+              onMouseEnter={() => setShowTooltip(true)}
+              onMouseLeave={() => setShowTooltip(false)}
+              className="avatar mr-3.5 items-center "
+            >
+              {showTooltip && (
+                <p className="mr-3.5 text-lg border rounded-lg px-2 text-primary font-semibold ">
+                  {user?.displayName}
+                </p>
+              )}
+              
+                <div className="w-10 rounded-full ">
+                  <img src={user?.photoURL} />
+                </div>
+            </div>{" "}
+              </Link>
+            <button
+              onClick={handleLogout}
+              className="btn btn-primary rounded-xl text-white "
+            >
+              Logout
+            </button>
+          </div>
+        ) : (
+          <div>
+            <Link
+              to={"/login"}
+              className="btn btn-primary rounded-xl text-white "
+            >
+              Login
+            </Link>
+          </div>
+        )}
       </div>
     </div>
     );
