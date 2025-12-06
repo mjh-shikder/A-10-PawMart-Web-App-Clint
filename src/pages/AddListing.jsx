@@ -1,3 +1,4 @@
+import axios from "axios";
 import React from "react";
 
 const AddListing = () => {
@@ -27,6 +28,12 @@ const AddListing = () => {
       
       console.log(formData);
       
+      axios.post('http://localhost:3000/add-listing', formData)
+          .then(res => {
+          console.log(res);
+          
+      })
+
   };
 
   return (
@@ -45,7 +52,7 @@ const AddListing = () => {
           <input
             type="text"
             name="name"
-            onChange={`handleChange`}
+            
             className="w-full border p-2 rounded"
             required
           />
@@ -56,7 +63,7 @@ const AddListing = () => {
           <label className="font-semibold">Category</label>
           <select
             name="category"
-            onChange={`handleChange`}
+            
             className="w-full border p-2 rounded"
             required
           >
@@ -74,7 +81,7 @@ const AddListing = () => {
           <input
             type="number"
             name="price"
-            onChange={`handleChange`}
+            
             className="w-full border p-2 rounded"
             required
           />
@@ -86,7 +93,7 @@ const AddListing = () => {
           <input
             type="text"
             name="location"
-            onChange={`handleChange`}
+            
             className="w-full border p-2 rounded"
             required
           />
@@ -97,7 +104,7 @@ const AddListing = () => {
           <label className="font-semibold">Description</label>
           <textarea
             name="description"
-            onChange={`handleChange`}
+            
             className="w-full border p-2 rounded"
             rows="3"
           ></textarea>
@@ -109,7 +116,7 @@ const AddListing = () => {
           <input
             type="text"
             name="image"
-            onChange={`handleChange`}
+            
             className="w-full border p-2 rounded"
           />
         </div>
@@ -120,7 +127,7 @@ const AddListing = () => {
           <input
             type="date"
             name="date"
-            onChange={`handleChange`}
+            
             className="w-full border p-2 rounded"
           />
         </div>
