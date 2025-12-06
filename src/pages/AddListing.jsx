@@ -1,11 +1,129 @@
-import React from 'react';
+import React from "react";
 
 const AddListing = () => {
-    return (
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        
+        
+}
+
+  return (
+    <div>
+      <form
+        onSubmit={handleSubmit}
+        className="max-w-xl mx-auto bg-white text-primary shadow-md p-6 rounded-xl space-y-4"
+      >
+        <h2 className="text-2xl font-bold mb-4 text-center text-secondary">Create Listing</h2>
+
+        {/* Product / Pet Name */}
         <div>
-            Add listing
+          <label className="font-semibold">Product / Pet Name</label>
+          <input
+            type="text"
+            name="name"
+            onChange={`handleChange`}
+            className="w-full border p-2 rounded"
+            required
+          />
         </div>
-    );
+
+        {/* Category Dropdown */}
+        <div>
+          <label className="font-semibold">Category</label>
+          <select
+            name="category"
+            onChange={`handleChange`}
+            className="w-full border p-2 rounded"
+            required
+          >
+            <option value="">Select Category</option>
+            <option value="Pets">Pets</option>
+            <option value="Food">Food</option>
+            <option value="Accessories">Accessories</option>
+            <option value="Care Products">Care Products</option>
+          </select>
+        </div>
+
+        {/* Price */}
+        <div>
+          <label className="font-semibold">Price</label>
+          <input
+            type="number"
+            name="price"
+            onChange={`handleChange`}
+            className="w-full border p-2 rounded"
+            required
+          />
+        </div>
+
+        {/* Location */}
+        <div>
+          <label className="font-semibold">Location</label>
+          <input
+            type="text"
+            name="location"
+            onChange={`handleChange`}
+            className="w-full border p-2 rounded"
+            required
+          />
+        </div>
+
+        {/* Description */}
+        <div>
+          <label className="font-semibold">Description</label>
+          <textarea
+            name="description"
+            onChange={`handleChange`}
+            className="w-full border p-2 rounded"
+            rows="3"
+          ></textarea>
+        </div>
+
+        {/* Image URL */}
+        <div>
+          <label className="font-semibold">Image (URL)</label>
+          <input
+            type="url"
+            name="image"
+            onChange={`handleChange`}
+            className="w-full border p-2 rounded"
+          />
+        </div>
+
+        {/* Date (Pick Up) */}
+        <div>
+          <label className="font-semibold">Pick Up Date</label>
+          <input
+            type="date"
+            name="date"
+            onChange={`handleChange`}
+            className="w-full border p-2 rounded"
+          />
+        </div>
+
+        {/* Email (Read-only) */}
+        <div>
+          <label className="font-semibold">Email</label>
+          <input
+            type="email"
+            name="email"
+            value={`formData.email`}
+            readOnly
+            className="w-full border p-2 bg-gray-100 rounded cursor-not-allowed"
+          />
+        </div>
+
+        {/* Submit Button */}
+        <button
+          type="submit"
+          className="w-full bg-primary text-white p-2 rounded font-semibold"
+        >
+          Submit Listing
+        </button>
+      </form>
+    </div>
+  );
 };
 
 export default AddListing;

@@ -11,7 +11,7 @@ const Footer = () => {
     return (
         <footer data-aos="fade-down"
      
-      className="footer sm:footer-horizontal bg-base-200 text-primary py-10">
+      className="footer sm:footer-horizontal bg-base-200 text-secondary py-10">
   <aside>
     <img className='w-40' src={Logo} alt="" />
     <p>
@@ -36,7 +36,7 @@ const Footer = () => {
             </nav>
             <nav>
     <h6 className="font-semibold text-lg text-primary">Social</h6>
-    <div className="grid grid-flow-col gap-4 text-primary">
+    <div className="grid grid-flow-col gap-4 text-secondary">
       <a>
         <svg
           xmlns="http://www.w3.org/2000/svg"
