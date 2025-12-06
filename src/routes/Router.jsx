@@ -12,6 +12,7 @@ import PrivateRoute from "./PrivateRoute";
 import AddListing from "../pages/AddListing";
 import MyListing from "../pages/MyListing";
 import MyOrder from "../pages/MyOrder";
+import UpdateListing from "../pages/UpdateListing";
 
 const router = createBrowserRouter([
   {
@@ -92,6 +93,11 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         hydrateFallbackElement: <Loading></Loading>,
+        },
+        {
+            path: '/update-listing/:id',
+            element: <PrivateRoute><UpdateListing></UpdateListing></PrivateRoute>,
+            hydrateFallbackElement: <Loading></Loading>,
       },
     ],
   },
