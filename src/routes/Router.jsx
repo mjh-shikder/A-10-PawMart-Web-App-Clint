@@ -38,10 +38,6 @@ const router = createBrowserRouter([
       {
         path: "/pets-supplies",
         element: <PetsSupplies></PetsSupplies>,
-        loader: async () => {
-          const { data } = await axios.get("http://localhost:3000/listing");
-          return data;
-        },
         hydrateFallbackElement: <Loading></Loading>,
       },
       {

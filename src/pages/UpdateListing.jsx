@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import useAuth from "../hook/useAuth";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import axios from "axios";
 import { toast } from "react-toastify";
 
@@ -12,7 +12,9 @@ const UpdateListing = () => {
   const [currentList, setCurrentList] = useState();
 
   // to set defalut category
-  const [category, setCategory] = useState(currentList?.category);
+    const [category, setCategory] = useState(currentList?.category);
+    
+    const navigation = useNavigate()
 
   useEffect(() => {
     axios.get(`http://localhost:3000/listing/${id}`).then((res) => {
@@ -52,7 +54,7 @@ const UpdateListing = () => {
           .then(res => {
               console.log(res.data);
               toast.success('Data Updated')
-          
+                navigation('/my-listing')
           })
           .catch(err => {
           console.log(err);
