@@ -2,10 +2,12 @@ import axios from "axios";
 import React from "react";
 import { toast } from "react-toastify";
 import useAuth from "../hook/useAuth";
+import { useNavigate } from "react-router";
 
 const AddListing = () => {
+  const { user } = useAuth();
 
-  const {user} = useAuth()
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -29,17 +31,16 @@ const AddListing = () => {
       image,
       date,
       email,
-      };
-      
-      console.log(formData);
-      
-      axios.post('http://localhost:3000/add-listing', formData)
-          .then(res => {
-          console.log(res);
-            toast.success('Data Submitted')
-            e.target.reset()
-      })
+    };
 
+    console.log(formData);
+
+    axios.post("http://localhost:3000/add-listing", formData).then((res) => {
+      console.log(res);
+      toast.success("Data Submitted");
+      e.target.reset();
+      navigate("/pets-supplies");
+    });
   };
 
   return (
@@ -58,7 +59,6 @@ const AddListing = () => {
           <input
             type="text"
             name="name"
-            
             className="w-full border p-2 rounded"
             required
           />
@@ -69,7 +69,6 @@ const AddListing = () => {
           <label className="font-semibold">Category</label>
           <select
             name="category"
-            
             className="w-full border p-2 rounded"
             required
           >
@@ -87,9 +86,7 @@ const AddListing = () => {
           <input
             type="number"
             name="price"
-            
             className="w-full border p-2 rounded"
-            required
           />
         </div>
 
@@ -99,7 +96,6 @@ const AddListing = () => {
           <input
             type="text"
             name="location"
-            
             className="w-full border p-2 rounded"
             required
           />
@@ -110,7 +106,6 @@ const AddListing = () => {
           <label className="font-semibold">Description</label>
           <textarea
             name="description"
-            
             className="w-full border p-2 rounded"
             rows="3"
           ></textarea>
@@ -122,7 +117,6 @@ const AddListing = () => {
           <input
             type="text"
             name="image"
-            
             className="w-full border p-2 rounded"
           />
         </div>
@@ -133,7 +127,6 @@ const AddListing = () => {
           <input
             type="date"
             name="date"
-            
             className="w-full border p-2 rounded"
           />
         </div>

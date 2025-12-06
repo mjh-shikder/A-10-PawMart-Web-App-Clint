@@ -4,11 +4,14 @@ import { FaStar } from "react-icons/fa";
 import { IoLocationSharp } from "react-icons/io5";
 import { useLoaderData, useNavigate } from "react-router";
 import { toast } from "react-toastify";
+import useAuth from "../hook/useAuth";
 
 const CardDetailsPage = () => {
   const data = useLoaderData();
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+
+  const { user } = useAuth();
 
   const {
     Price,
@@ -50,17 +53,14 @@ const CardDetailsPage = () => {
       notes,
     };
 
-      console.log(formData);
+    console.log(formData);
 
-      axios.post('http://localhost:3000/orders', formData)
-          .then(res => {
-          console.log(res);
-            toast.success('Data Submitted')
-            e.target.reset()
-            navigate('/my-orders')
-      })
-
-
+    axios.post("http://localhost:3000/orders", formData).then((res) => {
+      console.log(res);
+      toast.success("Data Submitted");
+      e.target.reset();
+      navigate("/my-orders");
+    });
   };
 
   return (
@@ -131,6 +131,7 @@ const CardDetailsPage = () => {
                         name="name"
                         placeholder="Enter buyer name"
                         className="w-full border px-3 py-2 rounded-lg "
+                        value={user.displayName}
                       />
                     </div>
 
@@ -141,6 +142,7 @@ const CardDetailsPage = () => {
                         type="email"
                         name="email"
                         placeholder="Enter email"
+                        value={user.email}
                         // readOnly
                         className="w-full border px-3 py-2 rounded-lg"
                       />
@@ -182,6 +184,7 @@ const CardDetailsPage = () => {
                         Quantity
                       </label>
                       <input
+                        value={category == "Pets" ? 1 : ""}
                         type="number"
                         min="1"
                         name="quantity"

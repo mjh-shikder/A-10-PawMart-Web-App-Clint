@@ -10,8 +10,19 @@ import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "aos/dist/aos.css";
 import { Link } from "react-router";
+import useAuth from "../hook/useAuth";
+
+
+
 
 const RecentListing = () => {
+
+  // const { user } = useAuth()
+
+  // const email = user.email
+
+
+
   const [recentData, setRecentData] = useState([]);
   const [category, setCategory] = useState("");
   console.log(category);
