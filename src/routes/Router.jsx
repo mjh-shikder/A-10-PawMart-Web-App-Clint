@@ -9,6 +9,7 @@ import PetsSupplies from "../components/PetsSupplies";
 import CardDetailsPage from "../pages/CardDetailsPage";
 import axios from "axios";
 import PrivateRoute from "./PrivateRoute";
+import AddListing from "../pages/AddListing";
 
 const router = createBrowserRouter([
   {
@@ -53,6 +54,11 @@ const router = createBrowserRouter([
         {
             path: '/register',
             element: <Register></Register>,
+            hydrateFallbackElement: <Loading></Loading>,
+        },
+        {
+            path: '/add-listing',
+            element: <PrivateRoute><AddListing></AddListing></PrivateRoute>,
             hydrateFallbackElement: <Loading></Loading>,
         },
     ],
