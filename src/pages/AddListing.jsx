@@ -1,12 +1,33 @@
 import React from "react";
 
 const AddListing = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        
-        
-}
+    const form = e.target;
+    const name = form.name.value;
+    const category = form.category.value;
+    const price = form.price.value;
+    const location = form.location.value;
+    const description = form.description.value;
+    const image = form.image.value;
+    const date = form.date.value;
+    const email = form.email.value;
+
+    const formData = {
+      name,
+      category,
+      price,
+      location,
+      description,
+      image,
+      date,
+      email,
+      };
+      
+      console.log(formData);
+      
+  };
 
   return (
     <div>
@@ -14,7 +35,9 @@ const AddListing = () => {
         onSubmit={handleSubmit}
         className="max-w-xl mx-auto bg-white text-primary shadow-md p-6 rounded-xl space-y-4"
       >
-        <h2 className="text-2xl font-bold mb-4 text-center text-secondary">Create Listing</h2>
+        <h2 className="text-2xl font-bold mb-4 text-center text-secondary">
+          Create Listing
+        </h2>
 
         {/* Product / Pet Name */}
         <div>
@@ -84,7 +107,7 @@ const AddListing = () => {
         <div>
           <label className="font-semibold">Image (URL)</label>
           <input
-            type="url"
+            type="text"
             name="image"
             onChange={`handleChange`}
             className="w-full border p-2 rounded"
@@ -115,10 +138,7 @@ const AddListing = () => {
         </div>
 
         {/* Submit Button */}
-        <button
-          type="submit"
-          className="w-full bg-primary text-white p-2 rounded font-semibold"
-        >
+        <button className="w-full bg-primary text-white p-2 rounded font-semibold">
           Submit Listing
         </button>
       </form>
