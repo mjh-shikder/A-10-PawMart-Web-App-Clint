@@ -1,7 +1,12 @@
 import axios from "axios";
 import React from "react";
+import { toast } from "react-toastify";
+import useAuth from "../hook/useAuth";
 
 const AddListing = () => {
+
+  const {user} = useAuth()
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -31,7 +36,7 @@ const AddListing = () => {
       axios.post('http://localhost:3000/add-listing', formData)
           .then(res => {
           console.log(res);
-          
+          toast.success('Data Submitted')
       })
 
   };
@@ -138,7 +143,7 @@ const AddListing = () => {
           <input
             type="email"
             name="email"
-            value={`formData.email`}
+            value={user.email}
             readOnly
             className="w-full border p-2 bg-gray-100 rounded cursor-not-allowed"
           />

@@ -62,7 +62,7 @@ const Category = () => {
             <div className="relative z-10 flex h-full items-center  md:items-center md:justify-start md:pb-0">
               <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
                 <h2 className="text-4xl md:text-2xl lg:text-3xl font-bold text-white drop-shadow-lg ">
-                  Pet (Adoption)
+                  Pet
                 </h2>
                 
               </div>

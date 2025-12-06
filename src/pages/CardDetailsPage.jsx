@@ -3,6 +3,7 @@ import React from "react";
 import { FaStar } from "react-icons/fa";
 import { IoLocationSharp } from "react-icons/io5";
 import { useLoaderData } from "react-router";
+import { toast } from "react-toastify";
 
 const CardDetailsPage = () => {
   const data = useLoaderData();
@@ -28,7 +29,7 @@ const CardDetailsPage = () => {
     const listingId = form.listingID.value;
     const listingName = form.listingName.value;
     const quantity = form.quantity.value;
-    const price = form.price.value;
+    const price = parseInt(form.price.value);
     const address = form.address.value;
     const date = form.date.value;
     const phone = form.phone.value;
@@ -52,7 +53,7 @@ const CardDetailsPage = () => {
       axios.post('http://localhost:3000/orders', formData)
           .then(res => {
           console.log(res);
-          
+          toast.success('Data Submitted')
       })
 
 

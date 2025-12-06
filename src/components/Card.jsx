@@ -28,7 +28,7 @@ const Card = ({ data }) => {
         </div>
 
         <div className="flex  justify-between items-center">
-          {Price == 0 ? (
+          {category == 'Pets' ? (
             <h3 className=" text-secondary bg-white py-0.5 border border-gray-100 rounded-md px-1.5 items-center">
               Free for Adoption
             </h3>

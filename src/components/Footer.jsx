@@ -9,7 +9,7 @@ const Footer = () => {
         Aos.init();
     }, [])
     return (
-        <footer data-aos="fade-down"
+        <footer data-aos="fade-up"
      
       className="footer sm:footer-horizontal bg-base-200 text-secondary py-10">
   <aside>
