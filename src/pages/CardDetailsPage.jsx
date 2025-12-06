@@ -2,11 +2,13 @@ import axios from "axios";
 import React from "react";
 import { FaStar } from "react-icons/fa";
 import { IoLocationSharp } from "react-icons/io5";
-import { useLoaderData } from "react-router";
+import { useLoaderData, useNavigate } from "react-router";
 import { toast } from "react-toastify";
 
 const CardDetailsPage = () => {
   const data = useLoaderData();
+
+  const navigate = useNavigate()
 
   const {
     Price,
@@ -53,7 +55,9 @@ const CardDetailsPage = () => {
       axios.post('http://localhost:3000/orders', formData)
           .then(res => {
           console.log(res);
-          toast.success('Data Submitted')
+            toast.success('Data Submitted')
+            e.target.reset()
+            navigate('/my-orders')
       })
 
 

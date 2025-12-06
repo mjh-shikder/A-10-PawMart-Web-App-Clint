@@ -36,7 +36,8 @@ const AddListing = () => {
       axios.post('http://localhost:3000/add-listing', formData)
           .then(res => {
           console.log(res);
-          toast.success('Data Submitted')
+            toast.success('Data Submitted')
+            e.target.reset()
       })
 
   };

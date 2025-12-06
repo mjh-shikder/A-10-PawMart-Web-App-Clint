@@ -5,6 +5,7 @@ import { FaEdit } from "react-icons/fa";
 import { Link } from "react-router";
 import axios from "axios";
 import { toast } from "react-toastify";
+import Swal from "sweetalert2";
 
 const MyListing = () => {
   const [myListing, setMyListing] = useState([]);
@@ -19,22 +20,43 @@ const MyListing = () => {
       .then((data) => setMyListing(data))
       .catch((err) => console.log(err));
   }, [user?.email]);
-    
-    // Delete button 
-    const handleDelete = (id) => {
-        axios.delete(`http://localhost:3000/delete/${id}`)
-            .then(res => {
-                console.log(res.data);
-                toast.success('Listing Deleted')
-                const filterData = myListing.filter(list => list._id != id)
-                console.log(filterData);
-                setMyListing(filterData)
-                
-            })
-            .catch(err => {
-            toast.error(err)
-        })
-    }
+
+  // Delete button
+  const handleDelete = (id) => {
+    // sweet alert
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // baki function
+        axios
+          .delete(`http://localhost:3000/delete/${id}`)
+          .then((res) => {
+            console.log(res.data);
+            if (res.data.deletedCount) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your file has been deleted.",
+                icon: "success",
+              });
+            }
+            const filterData = myListing.filter((list) => list._id != id);
+            console.log(filterData);
+            setMyListing(filterData);
+          })
+          .catch((err) => {
+            toast.error(err);
+          });
+      }
+    });
+    //
+  };
 
   return (
     <div>
@@ -78,10 +100,16 @@ const MyListing = () => {
                 <td>{list?.description}</td>
                 <td className="text-accent">{list?.category}</td>
                 <td className="flex gap-2 ">
-                  <Link onClick={()=>handleDelete(list?._id)} className="btn btn-ghost btn-xs text-red-600 border border-red-500">
+                  <Link
+                    onClick={() => handleDelete(list?._id)}
+                    className="btn btn-ghost btn-xs text-red-600 border border-red-500"
+                  >
                     <MdDelete></MdDelete> Delete
                   </Link>
-                  <Link to={`/update-listing/${list?._id}`} className="btn btn-ghost btn-xs text-secondary border border-secondary ">
+                  <Link
+                    to={`/update-listing/${list?._id}`}
+                    className="btn btn-ghost btn-xs text-secondary border border-secondary "
+                  >
                     <FaEdit></FaEdit> Edit
                   </Link>
                 </td>

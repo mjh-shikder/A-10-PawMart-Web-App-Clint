@@ -47,7 +47,7 @@ const PetHero = () => {
 
   return (
     <div>
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-base-100 rounded-xl">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           {/* Header */}
           <div className="text-center mb-12">
@@ -108,13 +108,7 @@ const PetHero = () => {
             ))}
           </div>
 
-          {/* CTA */}
-          <div className="text-center mt-12">
-            <Link to={'/pets-supplies'} className="inline-flex items-center gap-3 bg-primary hover:bg-primary/90 text-white font-semibold py-4 px-8 rounded-full transition-all hover:shadow-xl hover:scale-105">
-              <FaPaw className="w-6 h-6" />
-              Become a Pet Hero Today
-            </Link>
-          </div>
+          
         </div>
       </section>
     </div>
