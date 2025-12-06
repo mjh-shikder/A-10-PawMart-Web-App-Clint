@@ -10,6 +10,8 @@ import CardDetailsPage from "../pages/CardDetailsPage";
 import axios from "axios";
 import PrivateRoute from "./PrivateRoute";
 import AddListing from "../pages/AddListing";
+import MyListing from "../pages/MyListing";
+import MyOrder from "../pages/MyOrder";
 
 const router = createBrowserRouter([
   {
@@ -59,6 +61,16 @@ const router = createBrowserRouter([
         {
             path: '/add-listing',
             element: <PrivateRoute><AddListing></AddListing></PrivateRoute>,
+            hydrateFallbackElement: <Loading></Loading>,
+        },
+        {
+            path: '/my-listing',
+            element: <PrivateRoute><MyListing></MyListing></PrivateRoute>,
+            hydrateFallbackElement: <Loading></Loading>,
+        },
+        {
+            path: '/my-orders',
+            element: <PrivateRoute><MyOrder></MyOrder></PrivateRoute>,
             hydrateFallbackElement: <Loading></Loading>,
         },
     ],
