@@ -37,42 +37,62 @@ const router = createBrowserRouter([
       {
         path: "/pets-supplies",
         element: <PetsSupplies></PetsSupplies>,
+        loader: async () => {
+          const { data } = await axios.get("http://localhost:3000/listing");
+          return data;
+        },
         hydrateFallbackElement: <Loading></Loading>,
       },
       {
         path: "/card-details/:_id",
-        element: <PrivateRoute><CardDetailsPage></CardDetailsPage></PrivateRoute> ,
+        element: (
+          <PrivateRoute>
+            <CardDetailsPage></CardDetailsPage>
+          </PrivateRoute>
+        ),
         loader: async ({ params }) => {
           const { data } = await axios.get("http://localhost:3000/listing");
           return data.find((item) => item._id === params._id);
         },
         hydrateFallbackElement: <Loading></Loading>,
-        },
-        {
-            path: '/login',
-            element: <LoginPage></LoginPage>,
-            hydrateFallbackElement: <Loading></Loading>,
-        },
-        {
-            path: '/register',
-            element: <Register></Register>,
-            hydrateFallbackElement: <Loading></Loading>,
-        },
-        {
-            path: '/add-listing',
-            element: <PrivateRoute><AddListing></AddListing></PrivateRoute>,
-            hydrateFallbackElement: <Loading></Loading>,
-        },
-        {
-            path: '/my-listing',
-            element: <PrivateRoute><MyListing></MyListing></PrivateRoute>,
-            hydrateFallbackElement: <Loading></Loading>,
-        },
-        {
-            path: '/my-orders',
-            element: <PrivateRoute><MyOrder></MyOrder></PrivateRoute>,
-            hydrateFallbackElement: <Loading></Loading>,
-        },
+      },
+      {
+        path: "/login",
+        element: <LoginPage></LoginPage>,
+        hydrateFallbackElement: <Loading></Loading>,
+      },
+      {
+        path: "/register",
+        element: <Register></Register>,
+        hydrateFallbackElement: <Loading></Loading>,
+      },
+      {
+        path: "/add-listing",
+        element: (
+          <PrivateRoute>
+            <AddListing></AddListing>
+          </PrivateRoute>
+        ),
+        hydrateFallbackElement: <Loading></Loading>,
+      },
+      {
+        path: "/my-listing",
+        element: (
+          <PrivateRoute>
+            <MyListing></MyListing>
+          </PrivateRoute>
+        ),
+        hydrateFallbackElement: <Loading></Loading>,
+      },
+      {
+        path: "/my-orders",
+        element: (
+          <PrivateRoute>
+            <MyOrder></MyOrder>
+          </PrivateRoute>
+        ),
+        hydrateFallbackElement: <Loading></Loading>,
+      },
     ],
   },
 ]);
