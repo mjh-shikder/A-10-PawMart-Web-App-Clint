@@ -31,7 +31,25 @@ const Registration = () => {
     const photoURL = e.target.photoURL.value;
     const displayName = e.target.name.value;
 
+    // passwords validation
+    if (password.length < 5) {
+      toast.error("Password must be at last 6 Charecters");
+      setError("Password must be at least 6 Charecters");
+      return;
+    }
 
+    if (!/[A-Z]/.test(password)) {
+      toast.error("Password must contain at least one uppercase letter");
+      setError("Password must contain at least one uppercase letter");
+      return;
+    }
+
+    if (!/[a-z]/.test(password)) {
+      toast.error("Password must contain at least one lowercase letter");
+      setError("Password must contain at least one lowercase letter");
+      return;
+    }
+    
 
     console.log(email, password, photoURL);
 

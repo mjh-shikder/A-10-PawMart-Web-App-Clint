@@ -19,10 +19,10 @@ const Card = ({ data }) => {
           </h2>
         </div>
         <div className="flex items-center justify-between">
-          <div className="text-sec border border-accent rounded-md px-1.5">
+          <div className="text-primary border border-primary rounded-md px-1.5">
             <h3>{category}</h3>
           </div>
-          <div className="flex items-center bg-white py-0.5 border border-gray-100 rounded-md px-1.5">
+          <div className="flex text-accent items-center bg-white py-0.5 border border-gray-100 rounded-md px-1.5">
             <IoLocationSharp size={17}></IoLocationSharp> {location}
           </div>
         </div>

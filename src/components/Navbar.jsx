@@ -10,6 +10,9 @@ const Navbar = () => {
 
   const [showTooltip, setShowTooltip] = useState(false);
 
+  // console.log(user);
+  
+
   const handleLogout = () => {
     logout()
       .then(() => {
@@ -22,8 +25,16 @@ const Navbar = () => {
 
 
      const links = <>
-    <li> <NavLink to={'/'} className={({ isActive }) => isActive ? "bg-primary text-white px-2.5 py-0.5 rounded-lg font-semibold  " : "text-secondary font-semibold"}>Home</NavLink> </li>
-    <li> <NavLink to={'/pets-supplies'} className={({ isActive }) => isActive ? "bg-primary text-white px-2.5 py-0.5 rounded-lg font-semibold  " : "text-secondary font-semibold"}>Pets & Supplies</NavLink> </li>
+    <li> <NavLink to={'/'} className={({ isActive }) => isActive ? "border border-primary text-primary px-2.5  rounded-lg font-semibold  " : "text-secondary font-semibold"}>Home</NavLink> </li>
+       <li> <NavLink to={'/pets-supplies'} className={({ isActive }) => isActive ? "border border-primary text-primary px-2.5  rounded-lg font-semibold" : "text-secondary font-semibold"}>Pets & Supplies</NavLink> </li>
+       {
+         user &&
+         <>
+         <li> <NavLink to={'/add-listing'} className={({ isActive }) => isActive ? "border border-primary text-primary px-2.5  rounded-lg font-semibold" : "text-secondary font-semibold"}>Add Listing</NavLink> </li>
+         <li> <NavLink to={'/my-listing'} className={({ isActive }) => isActive ? "border border-primary text-primary px-2.5  rounded-lg font-semibold" : "text-secondary font-semibold"}>My Listing</NavLink> </li>
+         <li> <NavLink to={'/my-orders'} className={({ isActive }) => isActive ? "border border-primary text-primary px-2.5  rounded-lg font-semibold" : "text-secondary font-semibold"}>My Orders</NavLink> </li>
+         </>
+       }
     </>
     return (
         <div className="navbar bg-base-200 ">

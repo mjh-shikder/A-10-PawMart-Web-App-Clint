@@ -9,13 +9,11 @@
 @plugin "daisyui/theme" {
   name: "light";
   default: true;
-  --color-primary: #e07a5f;
-  --color-primary-dark: #c95f47;
-  --color-secondary: #81b29a;
-  --color-secondary-dark: #6b9c85;
-  --color-accent: #f4a261;
+  --color-primary: #4C8BF5;
+  --color-secondary: #3ECF8E;
+  --color-accent: #FF8A3D;
   --color-base-100: #ffffff;
-  --color-base-200: #FFF8F0;
+  --color-base-200: #F8FAFC;
   
 }
 
@@ -28,5 +26,5 @@
 }
 
 .des {
-  color: #4a4a4a;
+  color: #5c5c5c;
 }

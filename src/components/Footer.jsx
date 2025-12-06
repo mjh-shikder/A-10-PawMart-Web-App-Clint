@@ -11,7 +11,7 @@ const Footer = () => {
     return (
         <footer data-aos="fade-down"
      
-      className="footer sm:footer-horizontal bg-base-200 text-accent py-10">
+      className="footer sm:footer-horizontal bg-base-200 text-primary py-10">
   <aside>
     <img className='w-40' src={Logo} alt="" />
     <p>
@@ -21,22 +21,22 @@ const Footer = () => {
     </p>
   </aside>
   
-  <nav>
-    <h6 className=" font-semibold text-lg text-secondary">Company</h6>
+  <nav className='text-primary'>
+    <h6 className=" font-semibold text-lg ">Company</h6>
     <a className="link link-hover">About us</a>
     <a className="link link-hover">Contact</a>
     <a className="link link-hover">Jobs</a>
     <a className="link link-hover">Press kit</a>
   </nav>
-  <nav>
-    <h6 className="font-semibold text-lg text-secondary">Legal</h6>
+  <nav className='text-primary'>
+    <h6 className="font-semibold text-lg">Legal</h6>
     <a className="link link-hover">Terms of use</a>
     <a className="link link-hover">Privacy policy</a>
     <a className="link link-hover">Cookie policy</a>
             </nav>
             <nav>
-    <h6 className="font-semibold text-lg text-secondary">Social</h6>
-    <div className="grid grid-flow-col gap-4 text-secondary">
+    <h6 className="font-semibold text-lg text-primary">Social</h6>
+    <div className="grid grid-flow-col gap-4 text-primary">
       <a>
         <svg
           xmlns="http://www.w3.org/2000/svg"

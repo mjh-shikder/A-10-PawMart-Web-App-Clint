@@ -3,6 +3,7 @@ import useAuth from '../hook/useAuth';
 import Slider from '../components/Slider';
 import Category from '../components/Category';
 import RecentListing from '../components/RecentListing';
+import WhyPawMart from '../components/WhyPawMart';
 
 const HomePage = () => {
 
@@ -16,6 +17,7 @@ const HomePage = () => {
             <Slider></Slider>
             <Category></Category>
             <RecentListing></RecentListing>
+            <WhyPawMart></WhyPawMart>
         </div>
     );
 };
