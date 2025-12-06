@@ -8,6 +8,7 @@ import Register from "../pages/Register";
 import PetsSupplies from "../components/PetsSupplies";
 import CardDetailsPage from "../pages/CardDetailsPage";
 import axios from "axios";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -37,7 +38,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/card-details/:_id",
-        element: <CardDetailsPage></CardDetailsPage>,
+        element: <PrivateRoute><CardDetailsPage></CardDetailsPage></PrivateRoute> ,
         loader: async ({ params }) => {
           const { data } = await axios.get("http://localhost:3000/listing");
           return data.find((item) => item._id === params._id);
