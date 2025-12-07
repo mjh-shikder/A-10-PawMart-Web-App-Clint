@@ -12,7 +12,7 @@ const MyListing = () => {
 
   const { user } = useAuth();
 
-  console.log(myListing);
+  // console.log(myListing);
 
   useEffect(() => {
     fetch(
@@ -49,7 +49,7 @@ const MyListing = () => {
               });
             }
             const filterData = myListing.filter((list) => list._id != id);
-            console.log(filterData);
+            // console.log(filterData);
             setMyListing(filterData);
           })
           .catch((err) => {

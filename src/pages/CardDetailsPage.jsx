@@ -12,7 +12,7 @@ const CardDetailsPage = () => {
   const navigate = useNavigate();
 
   const { user } = useAuth();
-const userEmail = user.email
+
 
   const {
     Price,
@@ -54,7 +54,7 @@ const userEmail = user.email
       notes,
     };
 
-    console.log(formData);
+    // console.log(formData);
 
     axios
       .post("https://a10-paw-mart-backend.vercel.app/orders", formData)
