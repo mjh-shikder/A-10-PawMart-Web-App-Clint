@@ -48,10 +48,8 @@ const RecentListing = () => {
   }, []);
 
   return (
-    <div data-aos="zoom-in" className="bg-base-100 py-10 rounded-xl mt-10 ">
-      <h2 className="text-4xl text-center font-semibold text-primary hover:text-secondary mt-10">
-        Category
-      </h2>
+    <div data-aos="zoom-in" className=" py-10 rounded-xl mt-10 ">
+      
 
       {/*  */}
       <div
@@ -61,7 +59,7 @@ const RecentListing = () => {
             setCategory(value);
           }
         }}
-        className=" flex flex-col md:flex-row  justify-center items-center md:justify-between space-y-5 px-10 my-20  "
+        className="grid md:grid-cols-4 grid-cols-2 gap-5 pb-10 rounded-xl my-10 px-5  "
       >
         <div
           data-value="Pets"
@@ -91,7 +89,6 @@ const RecentListing = () => {
           Pet Care Products
         </div>
       </div>
-
       <h1 className="text-4xl text-center font-semibold text-primary hover:text-secondary  ">
         Recent Listing
       </h1>

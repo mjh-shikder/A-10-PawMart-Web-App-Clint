@@ -111,11 +111,11 @@ const UpdateListing = () => {
           <div>
             <label className="font-semibold">Price</label>
             <input
-              type="text"
+              type="number"
               name="price"
               defaultValue={currentList?.price}
               className="w-full border p-2 rounded"
-              required
+             
             />
           </div>
 

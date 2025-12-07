@@ -202,7 +202,7 @@ const CardDetailsPage = () => {
                         type="text"
                         readOnly
                         name="price"
-                        placeholder="Auto price"
+                        placeholder="Free"
                         value={Price}
                         className="w-full border px-3 py-2 rounded-lg bg-gray-100 cursor-not-allowed"
                       />

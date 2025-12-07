@@ -6,6 +6,8 @@ import { useNavigate } from "react-router";
 
 const AddListing = () => {
   const { user } = useAuth();
+  console.log(user.email);
+  
 
   const navigate = useNavigate();
 
@@ -19,7 +21,7 @@ const AddListing = () => {
     const location = form.location.value;
     const description = form.description.value;
     const image = form.image.value;
-    const date = form.date.value;
+    const date = 'Not added'
     const email = form.email.value;
 
     const formData = {
@@ -90,6 +92,7 @@ const AddListing = () => {
             type="number"
             name="price"
             className="w-full border p-2 rounded"
+            defaultValue={0}
           />
         </div>
 
@@ -125,14 +128,14 @@ const AddListing = () => {
         </div>
 
         {/* Date (Pick Up) */}
-        <div>
+        {/* <div>
           <label className="font-semibold">Pick Up Date</label>
           <input
             type="date"
             name="date"
             className="w-full border p-2 rounded"
           />
-        </div>
+        </div> */}
 
         {/* Email (Read-only) */}
         <div>
