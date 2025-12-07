@@ -12,16 +12,10 @@ import "aos/dist/aos.css";
 import { Link } from "react-router";
 import useAuth from "../hook/useAuth";
 
-
-
-
 const RecentListing = () => {
-
   // const { user } = useAuth()
 
   // const email = user.email
-
-
 
   const [recentData, setRecentData] = useState([]);
   const [category, setCategory] = useState("");
@@ -29,7 +23,7 @@ const RecentListing = () => {
 
   // useEffect(() => {
   //   axios
-  //     .get("http://localhost:3000/recent-listing")
+  //     .get("https://a10-paw-mart-backend.vercel.app/recent-listing")
   //     .then((res) => {
   //       setRecentData(res.data);
   //     })
@@ -40,7 +34,9 @@ const RecentListing = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/listing?category=${category}`)
+      .get(
+        `https://a10-paw-mart-backend.vercel.app/listing?category=${category}`
+      )
       .then((res) => {
         setRecentData(res.data);
       });
@@ -59,43 +55,42 @@ const RecentListing = () => {
 
       {/*  */}
       <div
-  onClick={(e) => {
-    const value = e.target.getAttribute("data-value");
-    if (value) {
-      setCategory(value);
-    }
-  }}
-  className=" flex flex-col md:flex-row  justify-center items-center md:justify-between space-y-5 px-10 my-20  "
->
-  <div
-    data-value="Pets"
-    className="px-10 py-3 rounded-xl bg-primary text-white cursor-pointer items-center justify-center flex font-bold text-2xl"
-  >
-    Pets
-  </div>
+        onClick={(e) => {
+          const value = e.target.getAttribute("data-value");
+          if (value) {
+            setCategory(value);
+          }
+        }}
+        className=" flex flex-col md:flex-row  justify-center items-center md:justify-between space-y-5 px-10 my-20  "
+      >
+        <div
+          data-value="Pets"
+          className="px-10 py-3 rounded-xl bg-primary text-white cursor-pointer items-center justify-center flex font-bold text-2xl"
+        >
+          Pets
+        </div>
 
-  <div
-    data-value="Pet Food"
-    className="px-10 py-3 rounded-xl bg-primary text-white cursor-pointer items-center justify-center flex font-bold text-2xl"
-  >
-    Pet Food
-  </div>
+        <div
+          data-value="Pet Food"
+          className="px-10 py-3 rounded-xl bg-primary text-white cursor-pointer items-center justify-center flex font-bold text-2xl"
+        >
+          Pet Food
+        </div>
 
-  <div
-    data-value="Accessories"
-    className="px-10 py-3 rounded-xl bg-primary text-white cursor-pointer items-center justify-center flex font-bold text-2xl"
-  >
-    Accessories
-  </div>
+        <div
+          data-value="Accessories"
+          className="px-10 py-3 rounded-xl bg-primary text-white cursor-pointer items-center justify-center flex font-bold text-2xl"
+        >
+          Accessories
+        </div>
 
-  <div
-    data-value="Pet Care Products"
-    className="px-10 py-3 rounded-xl bg-primary text-white cursor-pointer items-center justify-center flex font-bold text-2xl"
-  >
-    Pet Care Products
-  </div>
-</div>
-
+        <div
+          data-value="Pet Care Products"
+          className="px-10 py-3 rounded-xl bg-primary text-white cursor-pointer items-center justify-center flex font-bold text-2xl"
+        >
+          Pet Care Products
+        </div>
+      </div>
 
       <h1 className="text-4xl text-center font-semibold text-primary hover:text-secondary  ">
         Recent Listing

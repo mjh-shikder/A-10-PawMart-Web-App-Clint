@@ -15,7 +15,9 @@ const MyListing = () => {
   console.log(myListing);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/my-listing?email=${user?.email}`)
+    fetch(
+      `https://a10-paw-mart-backend.vercel.app/my-listing?email=${user?.email}`
+    )
       .then((res) => res.json())
       .then((data) => setMyListing(data))
       .catch((err) => console.log(err));
@@ -36,7 +38,7 @@ const MyListing = () => {
       if (result.isConfirmed) {
         // baki function
         axios
-          .delete(`http://localhost:3000/delete/${id}`)
+          .delete(`https://a10-paw-mart-backend.vercel.app/delete/${id}`)
           .then((res) => {
             console.log(res.data);
             if (res.data.deletedCount) {

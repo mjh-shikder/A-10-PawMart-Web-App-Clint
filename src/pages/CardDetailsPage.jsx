@@ -55,12 +55,14 @@ const CardDetailsPage = () => {
 
     console.log(formData);
 
-    axios.post("http://localhost:3000/orders", formData).then((res) => {
-      console.log(res);
-      toast.success("Data Submitted");
-      e.target.reset();
-      navigate("/my-orders");
-    });
+    axios
+      .post("https://a10-paw-mart-backend.vercel.app/orders", formData)
+      .then((res) => {
+        console.log(res);
+        toast.success("Data Submitted");
+        e.target.reset();
+        navigate("/my-orders");
+      });
   };
 
   return (

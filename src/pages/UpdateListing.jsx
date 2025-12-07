@@ -12,22 +12,24 @@ const UpdateListing = () => {
   const [currentList, setCurrentList] = useState();
 
   // to set defalut category
-    const [category, setCategory] = useState(currentList?.category);
-    
-    const navigation = useNavigate()
+  const [category, setCategory] = useState(currentList?.category);
+
+  const navigation = useNavigate();
 
   useEffect(() => {
-    axios.get(`http://localhost:3000/listing/${id}`).then((res) => {
-      setCurrentList(res.data);
-      setCategory(res.data.category);
-    });
+    axios
+      .get(`https://a10-paw-mart-backend.vercel.app/listing/${id}`)
+      .then((res) => {
+        setCurrentList(res.data);
+        setCategory(res.data.category);
+      });
   }, [id]);
 
   console.log(currentList);
 
   const handleUpdate = (e) => {
-      e.preventDefault();
-      
+    e.preventDefault();
+
     const form = e.target;
     const name = form.name.value;
     const category = form.category.value;
@@ -38,7 +40,7 @@ const UpdateListing = () => {
     const date = form.date.value;
     const email = form.email.value;
 
-      const formData = {
+    const formData = {
       name,
       category,
       price,
@@ -46,22 +48,21 @@ const UpdateListing = () => {
       description,
       image,
       date,
-          email,
-      createdAt: currentList?.createdAt
-      };
+      email,
+      createdAt: currentList?.createdAt,
+    };
 
-      axios.put(`http://localhost:3000/update/${id}`, formData)
-          .then(res => {
-              console.log(res.data);
-              toast.success('Data Updated')
-                navigation('/my-listing')
-          })
-          .catch(err => {
-          console.log(err);
-          toast.warning(err)
+    axios
+      .put(`https://a10-paw-mart-backend.vercel.app/update/${id}`, formData)
+      .then((res) => {
+        console.log(res.data);
+        toast.success("Data Updated");
+        navigation("/my-listing");
       })
-
-
+      .catch((err) => {
+        console.log(err);
+        toast.warning(err);
+      });
   };
 
   return (

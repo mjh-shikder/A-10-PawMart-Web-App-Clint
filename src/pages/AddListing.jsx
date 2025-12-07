@@ -35,16 +35,19 @@ const AddListing = () => {
 
     console.log(formData);
 
-    axios.post("http://localhost:3000/add-listing", formData).then((res) => {
-      console.log(res);
-      toast.success("Data Submitted");
-      e.target.reset();
-      navigate("/pets-supplies");
-    });
+    axios
+      .post("https://a10-paw-mart-backend.vercel.app/add-listing", formData)
+      .then((res) => {
+        console.log(res);
+        toast.success("Data Submitted");
+        e.target.reset();
+        navigate("/pets-supplies");
+      });
   };
 
   return (
     <div>
+      <title>Add Listing</title>
       <form
         onSubmit={handleSubmit}
         className="max-w-xl mx-auto bg-white text-primary shadow-md p-6 rounded-xl space-y-4"

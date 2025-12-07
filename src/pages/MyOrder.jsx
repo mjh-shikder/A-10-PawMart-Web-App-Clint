@@ -6,11 +6,13 @@ const MyOrder = () => {
   const [myOrder, setMyorder] = useState([]);
   // console.log(myOrder);
 
-const { user } = useAuth();
+  const { user } = useAuth();
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/my-orders?email=${user?.email}`)
+      .get(
+        `https://a10-paw-mart-backend.vercel.app/my-orders?email=${user?.email}`
+      )
       .then((res) => {
         setMyorder(res.data);
       })
@@ -21,6 +23,7 @@ const { user } = useAuth();
 
   return (
     <div className="overflow-x-auto">
+      <title>My Orders</title>
       <table className="table table-xs">
         <thead>
           <tr>
@@ -38,13 +41,13 @@ const { user } = useAuth();
           {myOrder.map((order, index) => (
             <tr>
               <th>{index + 1}</th>
-              <td>{order?.listingName ? order.listingName :'Not Added'}</td>
-              <td>{order?.name ? order.name :'Not Added'}</td>
-              <td>{order?.price ? order.price : 'Not Added'}</td>
-              <td>{order?.quantity ? order.quantity :'Not Added'}</td>
-              <td>{order?.address ? order.quantity :'Not Added'}</td>
-              <td>{order?.date ? order.date : 'Not Added'}</td>
-              <td>{order?.phone ? order.phone: 'Not Added'}</td>
+              <td>{order?.listingName ? order.listingName : "Not Added"}</td>
+              <td>{order?.name ? order.name : "Not Added"}</td>
+              <td>{order?.price ? order.price : "Not Added"}</td>
+              <td>{order?.quantity ? order.quantity : "Not Added"}</td>
+              <td>{order?.address ? order.quantity : "Not Added"}</td>
+              <td>{order?.date ? order.date : "Not Added"}</td>
+              <td>{order?.phone ? order.phone : "Not Added"}</td>
             </tr>
           ))}
         </tbody>

@@ -48,7 +48,9 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: async ({ params }) => {
-          const { data } = await axios.get("http://localhost:3000/listing");
+          const { data } = await axios.get(
+            "https://a10-paw-mart-backend.vercel.app/listing"
+          );
           return data.find((item) => item._id === params._id);
         },
         hydrateFallbackElement: <Loading></Loading>,
@@ -89,18 +91,22 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         hydrateFallbackElement: <Loading></Loading>,
-        },
-        {
-            path: '/update-listing/:id',
-            element: <PrivateRoute><UpdateListing></UpdateListing></PrivateRoute>,
-            hydrateFallbackElement: <Loading></Loading>,
+      },
+      {
+        path: "/update-listing/:id",
+        element: (
+          <PrivateRoute>
+            <UpdateListing></UpdateListing>
+          </PrivateRoute>
+        ),
+        hydrateFallbackElement: <Loading></Loading>,
       },
     ],
   },
   {
     path: "/*",
     element: <ErrorPage></ErrorPage>,
-  }
+  },
 ]);
 
 export default router;

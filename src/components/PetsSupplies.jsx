@@ -13,7 +13,7 @@ const PetsSupplies = () => {
   console.log(category);
 
   // useEffect(() => {
-  //   fetch('http://localhost:3000/listing')
+  //   fetch('https://a10-paw-mart-backend.vercel.app/listing')
   //     .then(res => res.json())
   //     .then(data => setAllData(data))
   //   .catch(err => console.log(err)
@@ -21,9 +21,13 @@ const PetsSupplies = () => {
   // },[setAllData])
 
   useEffect(() => {
-    axios.get(`http://localhost:3000/listing?category=${category}`).then((res) => {
-      setAllData(res.data);
-    });
+    axios
+      .get(
+        `https://a10-paw-mart-backend.vercel.app/listing?category=${category}`
+      )
+      .then((res) => {
+        setAllData(res.data);
+      });
   }, [category]);
 
   // Aos fucntion
