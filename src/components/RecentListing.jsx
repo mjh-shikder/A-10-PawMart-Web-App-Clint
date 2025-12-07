@@ -48,7 +48,7 @@ const RecentListing = () => {
   }, []);
 
   return (
-    <div data-aos="zoom-in" className=" py-10 rounded-xl mt-10 ">
+    <div data-aos="zoom-in" className=" py-10 rounded-xl md:mt-10 ">
       
 
       {/*  */}
@@ -70,7 +70,7 @@ const RecentListing = () => {
 
         <div
           data-value="Pet Food"
-          className="px-10 py-3 rounded-xl bg-primary text-white cursor-pointer items-center justify-center flex font-bold text-2xl"
+          className="px-10 py-3 rounded-xl bg-primary text-white cursor-pointer items-center justify-center flex font-bold md:text-2xl "
         >
           Pet Food
         </div>

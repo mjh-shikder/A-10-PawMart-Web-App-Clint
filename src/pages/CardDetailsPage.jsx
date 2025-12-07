@@ -12,11 +12,12 @@ const CardDetailsPage = () => {
   const navigate = useNavigate();
 
   const { user } = useAuth();
+const userEmail = user.email
 
   const {
     Price,
     category,
-    date,
+    
     description,
     email,
     image,
@@ -71,10 +72,10 @@ const CardDetailsPage = () => {
       <div className="bg-white mt-10 rounded-xl md:p-10 md:grid md:grid-cols-12 flex flex-col justify-start ">
         {/* image container */}
         <div className="col-span-7">
-          <img div className="rounded-xl w-full " src={image} alt="" />
+          <img div className="rounded-xl w-full h-[430px] object-cover" src={image} alt="" />
         </div>
         {/* others info */}
-        <div className="col-span-5 md:px-7 text-accent">
+        <div className="col-span-5 md:px-7 text-accent md:mt-0 mt-10 ">
           <h1 className="text-4xl font-semibold  ">{name}</h1>
           <p className="mt-3 text-lg text-gray-600 ">{description}</p>
           <p className="mt-4 text-lg text-secondary border border-secondary inline-block px-1.5 rounded-md ">
@@ -181,19 +182,32 @@ const CardDetailsPage = () => {
                     </div>
 
                     {/* Quantity */}
-                    <div>
+                    {category == "Pets" ? <div>
                       <label className="block mb-1 font-semibold">
                         Quantity
                       </label>
                       <input
-                        value={category == "Pets" ? 1 : ""}
+                        value={1}
                         type="number"
                         min="1"
                         name="quantity"
                         placeholder="Enter quantity"
                         className="w-full border px-3 py-2 rounded-lg"
                       />
-                    </div>
+                    </div> :<div>
+                      <label className="block mb-1 font-semibold">
+                        Quantity
+                      </label>
+                      <input
+                        defaultValue={1}
+                        type="number"
+                        min="1"
+                        name="quantity"
+                        placeholder="Enter quantity"
+                        className="w-full border px-3 py-2 rounded-lg"
+                      />
+                    </div> }
+                    
 
                     {/* Price (Read Only) */}
                     <div>
