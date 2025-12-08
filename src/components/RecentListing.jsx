@@ -23,7 +23,7 @@ const RecentListing = () => {
 
   // useEffect(() => {
   //   axios
-  //     .get("https://a10-paw-mart-backend.vercel.app/recent-listing")
+  //     .get("https://a-10-backend-paw-mart-web-app.vercel.app/recent-listing")
   //     .then((res) => {
   //       setRecentData(res.data);
   //     })
@@ -35,7 +35,7 @@ const RecentListing = () => {
   useEffect(() => {
     axios
       .get(
-        `https://a10-paw-mart-backend.vercel.app/listing?category=${category}`
+        `https://a-10-backend-paw-mart-web-app.vercel.app/listing?category=${category}`
       )
       .then((res) => {
         setRecentData(res.data);
@@ -49,8 +49,6 @@ const RecentListing = () => {
 
   return (
     <div data-aos="zoom-in" className=" py-10 rounded-xl md:mt-10 ">
-      
-
       {/*  */}
       <div
         onClick={(e) => {

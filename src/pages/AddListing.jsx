@@ -7,7 +7,6 @@ import { useNavigate } from "react-router";
 const AddListing = () => {
   const { user } = useAuth();
   console.log(user.email);
-  
 
   const navigate = useNavigate();
 
@@ -21,7 +20,7 @@ const AddListing = () => {
     const location = form.location.value;
     const description = form.description.value;
     const image = form.image.value;
-    const date = 'Not added'
+    const date = "Not added";
     const email = form.email.value;
 
     const formData = {
@@ -38,7 +37,10 @@ const AddListing = () => {
     console.log(formData);
 
     axios
-      .post("https://a10-paw-mart-backend.vercel.app/add-listing", formData)
+      .post(
+        "https://a-10-backend-paw-mart-web-app.vercel.app/add-listing",
+        formData
+      )
       .then((res) => {
         console.log(res);
         toast.success("Data Submitted");

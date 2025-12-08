@@ -13,11 +13,10 @@ const CardDetailsPage = () => {
 
   const { user } = useAuth();
 
-
   const {
     Price,
     category,
-    
+
     description,
     email,
     image,
@@ -57,7 +56,7 @@ const CardDetailsPage = () => {
     // console.log(formData);
 
     axios
-      .post("https://a10-paw-mart-backend.vercel.app/orders", formData)
+      .post("https://a-10-backend-paw-mart-web-app.vercel.app/orders", formData)
       .then((res) => {
         console.log(res);
         toast.success("Data Submitted");
@@ -72,7 +71,12 @@ const CardDetailsPage = () => {
       <div className="bg-white mt-10 rounded-xl md:p-10 md:grid md:grid-cols-12 flex flex-col justify-start ">
         {/* image container */}
         <div className="col-span-7">
-          <img div className="rounded-xl w-full h-[430px] object-cover" src={image} alt="" />
+          <img
+            div
+            className="rounded-xl w-full h-[430px] object-cover"
+            src={image}
+            alt=""
+          />
         </div>
         {/* others info */}
         <div className="col-span-5 md:px-7 text-accent md:mt-0 mt-10 ">
@@ -182,32 +186,35 @@ const CardDetailsPage = () => {
                     </div>
 
                     {/* Quantity */}
-                    {category == "Pets" ? <div>
-                      <label className="block mb-1 font-semibold">
-                        Quantity
-                      </label>
-                      <input
-                        value={1}
-                        type="number"
-                        min="1"
-                        name="quantity"
-                        placeholder="Enter quantity"
-                        className="w-full border px-3 py-2 rounded-lg"
-                      />
-                    </div> :<div>
-                      <label className="block mb-1 font-semibold">
-                        Quantity
-                      </label>
-                      <input
-                        defaultValue={1}
-                        type="number"
-                        min="1"
-                        name="quantity"
-                        placeholder="Enter quantity"
-                        className="w-full border px-3 py-2 rounded-lg"
-                      />
-                    </div> }
-                    
+                    {category == "Pets" ? (
+                      <div>
+                        <label className="block mb-1 font-semibold">
+                          Quantity
+                        </label>
+                        <input
+                          value={1}
+                          type="number"
+                          min="1"
+                          name="quantity"
+                          placeholder="Enter quantity"
+                          className="w-full border px-3 py-2 rounded-lg"
+                        />
+                      </div>
+                    ) : (
+                      <div>
+                        <label className="block mb-1 font-semibold">
+                          Quantity
+                        </label>
+                        <input
+                          defaultValue={1}
+                          type="number"
+                          min="1"
+                          name="quantity"
+                          placeholder="Enter quantity"
+                          className="w-full border px-3 py-2 rounded-lg"
+                        />
+                      </div>
+                    )}
 
                     {/* Price (Read Only) */}
                     <div>

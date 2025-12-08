@@ -18,7 +18,7 @@ const UpdateListing = () => {
 
   useEffect(() => {
     axios
-      .get(`https://a10-paw-mart-backend.vercel.app/listing/${id}`)
+      .get(`https://a-10-backend-paw-mart-web-app.vercel.app/listing/${id}`)
       .then((res) => {
         setCurrentList(res.data);
         setCategory(res.data.category);
@@ -53,7 +53,10 @@ const UpdateListing = () => {
     };
 
     axios
-      .put(`https://a10-paw-mart-backend.vercel.app/update/${id}`, formData)
+      .put(
+        `https://a-10-backend-paw-mart-web-app.vercel.app/update/${id}`,
+        formData
+      )
       .then((res) => {
         console.log(res.data);
         toast.success("Data Updated");
@@ -115,7 +118,6 @@ const UpdateListing = () => {
               name="price"
               defaultValue={currentList?.price}
               className="w-full border p-2 rounded"
-             
             />
           </div>
 

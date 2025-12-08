@@ -13,7 +13,7 @@ const PetsSupplies = () => {
   console.log(category);
 
   // useEffect(() => {
-  //   fetch('https://a10-paw-mart-backend.vercel.app/listing')
+  //   fetch('https://a-10-backend-paw-mart-web-app.vercel.app/listing')
   //     .then(res => res.json())
   //     .then(data => setAllData(data))
   //   .catch(err => console.log(err)
@@ -23,7 +23,7 @@ const PetsSupplies = () => {
   useEffect(() => {
     axios
       .get(
-        `https://a10-paw-mart-backend.vercel.app/listing?category=${category}`
+        `https://a-10-backend-paw-mart-web-app.vercel.app/listing?category=${category}`
       )
       .then((res) => {
         setAllData(res.data);

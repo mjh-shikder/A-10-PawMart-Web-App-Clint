@@ -11,7 +11,7 @@ const MyOrder = () => {
   useEffect(() => {
     axios
       .get(
-        `https://a10-paw-mart-backend.vercel.app/my-orders?email=${user?.email}`
+        `https://a-10-backend-paw-mart-web-app.vercel.app/my-orders?email=${user?.email}`
       )
       .then((res) => {
         setMyorder(res.data);
