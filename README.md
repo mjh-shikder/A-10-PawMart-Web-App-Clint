@@ -1,6 +1,6 @@
 # PawMart 🐾
 
-[Live Site](https://gentle-hummingbird-303a21.netlify.app/)  
+[Live Site](https://dulcet-biscotti-7b5c0b.netlify.app/)  
 
 **PawMart** is a community-driven platform where pet lovers, breeders, and shops can list pets for adoption or sell pet-related products like food, toys, and accessories. Buyers and adopters can browse, contact sellers, and order products directly through the platform.
 
